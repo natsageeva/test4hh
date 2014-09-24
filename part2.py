@@ -6,21 +6,24 @@ __author__ = 'Nats'
 
 import math
 
-a = 1
-b = 12
-k = 10
+a = 2794
+b = 6083
+k = 23
 
 def lengthPeriod(x, y):
-    r = x
-    for i in range(int(math.log(y)/math.log(2))):
+    if y == 1:
+        return 0
+    else:
+        r = x
+        for i in range(int(math.log(y)/math.log(2))):
+            r = 10 * r % y
+        q = r
         r = 10 * r % y
-    q = r
-    r = 10 * r % y
-    l = 1;
-    while r != q:
-        r = 10 * r % y
-        l += 1
-    return l
+        l = 1;
+        while r != q:
+            r = 10 * r % y
+            l += 1
+        return l
 
 def lengthPrePeriod(y):
     r = y % 2
